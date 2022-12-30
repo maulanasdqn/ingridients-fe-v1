@@ -1,6 +1,9 @@
 import { FC, ReactElement } from "react";
 
-const Loading: FC<{ text?: string; fontSize?: string }> = ({ fontSize = "text-3xl", text = "Sedang Memuat..." }): ReactElement => {
+const Loading: FC<{ text?: string; fontSize?: string }> = ({
+  fontSize = "text-3xl",
+  text = "Sedang Memuat...",
+}): ReactElement => {
   return (
     <div
       className="flex flex-col items-center h-screen z-10 justify-center w-full p-4"
