@@ -12,9 +12,7 @@ export const AuthPayload = atom<AuthPayloadTypes>({
   default: {
     email: "",
     password: "",
-    fullname: "",
-    departement: "",
-    student_id: "",
-    grade: "",
+    name: "",
+    confirm_password: "",
   },
 });

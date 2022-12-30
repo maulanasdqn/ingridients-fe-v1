@@ -1,22 +1,22 @@
 import ApiService from "@service/Api";
-import { getErrorMessage } from "@util/helper/index";
+import { handleError } from "@util/helper/index";
+import { PermissionReponseTypes } from "@util/types/Permission";
 
-const UsersService = {
-  UserMe: async () => {
+const PermissionService = {
+  GetPermission: async (): Promise<PermissionReponseTypes> => {
     const requestData = {
       method: "get",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      url: "/me/",
+      url: "/permission",
     };
     try {
-      ApiService.setHeader();
       const res = await ApiService.customRequest(requestData);
       return res.data;
     } catch (error) {
-      throw getErrorMessage(error);
+      throw handleError(error);
     }
   },
 };
-export default UsersService;
+export default PermissionService;

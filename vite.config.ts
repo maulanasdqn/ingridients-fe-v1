@@ -15,7 +15,8 @@ export default defineConfig({
       },
       theme: {
         colors: {
-          primary: "#F8F9FD",
+          active: "#eae8fd",
+          primary: "#685dd8",
           nav: {
             primary: "#1B2430",
             secondary: "",

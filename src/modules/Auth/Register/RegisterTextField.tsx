@@ -14,12 +14,12 @@ const RegisterTextField: FC = (): ReactElement => {
       type: "text",
       label: "Fullname",
       labelClassName: "block mb-2 text-sm font-medium text-gray-900 dark:text-white",
-      name: "fullname",
+      name: "name",
       id: "fullname",
       className,
       placeholder: "Maulana Sodiqin",
       required: true,
-      value: payload["fullname"],
+      value: payload["name"],
     },
 
     {
@@ -45,41 +45,16 @@ const RegisterTextField: FC = (): ReactElement => {
       required: true,
       value: payload["password"],
     },
-
     {
-      type: "text",
-      label: "Student ID",
+      type: "password",
+      label: "Confirm Password",
       labelClassName: "block mb-2 text-sm font-medium text-gray-900 dark:text-white",
-      name: "student_id",
-      id: "student_id",
+      name: "confirm_password",
+      id: "password",
       className,
-      placeholder: "4103700*****",
+      placeholder: "*************",
       required: true,
-      value: payload["student_id"],
-    },
-
-    {
-      type: "text",
-      label: "Grade",
-      labelClassName: "block mb-2 text-sm font-medium text-gray-900 dark:text-white",
-      name: "grade",
-      id: "grade",
-      className,
-      placeholder: "A1",
-      required: true,
-      value: payload["grade"],
-    },
-
-    {
-      type: "text",
-      label: "Departement",
-      labelClassName: "block mb-2 text-sm font-medium text-gray-900 dark:text-white",
-      name: "departement",
-      id: "departement",
-      className,
-      placeholder: "Informatika",
-      required: true,
-      value: payload["departement"],
+      value: payload["confirm_password"],
     },
   ];
 

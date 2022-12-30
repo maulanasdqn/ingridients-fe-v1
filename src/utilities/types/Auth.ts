@@ -3,7 +3,8 @@ import { ChangeEventHandler } from "react";
 export type AuthPayloadTypes = {
   email: string;
   password: string;
-  fullname?: string;
+  name?: string;
+  confirm_password?: string;
   student_id?: string;
   grade?: string;
   departement?: string;
