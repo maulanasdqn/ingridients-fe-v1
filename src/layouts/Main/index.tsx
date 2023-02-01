@@ -1,15 +1,13 @@
 import Sidebar from "@components/Sidebar";
 import AuthService from "@service/Auth";
-import { FC, ReactElement, ReactNode } from "react";
-import { TbActivity } from "react-icons/tb";
+
+import { TbActivity, Tb3DCubeSphere } from "react-icons/tb";
 import { BiLogOut } from "react-icons/bi";
 import { SiAdguard } from "react-icons/si";
+import { CommonInterface } from "@util/interfaces/Common";
+import { FC, ReactElement } from "react";
 
-type MainLayoutTypes = {
-  children: ReactNode;
-};
-
-const MainLayout: FC<MainLayoutTypes> = ({ children }): ReactElement => {
+const MainLayout: FC<CommonInterface> = ({ children }): ReactElement => {
   const sidebarItems = [
     {
       icons: <TbActivity />,
@@ -18,9 +16,9 @@ const MainLayout: FC<MainLayoutTypes> = ({ children }): ReactElement => {
     },
 
     {
-      icons: <SiAdguard />,
-      text: "Permission",
-      link: "/permission",
+      icons: <Tb3DCubeSphere />,
+      text: "Komposisi",
+      link: "/ingridients",
     },
 
     {

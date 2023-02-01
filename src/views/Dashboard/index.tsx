@@ -1,8 +1,10 @@
 import { setTitle } from "@util/helper/index";
-import { ReactElement, FC } from "react";
+import { ReactElement, FC, Suspense } from "react";
 
 import Auth from "@modules/Auth/Middleware/Auth";
 import MainLayout from "@layouts/Main";
+import DashboardModules from "@modules/Dashboard";
+import SubLoading from "@components/Loading/SubLoading";
 
 const Dashboard: FC = (): ReactElement => {
   setTitle("Dashboard");
@@ -10,7 +12,10 @@ const Dashboard: FC = (): ReactElement => {
   return (
     <Auth>
       <MainLayout>
-        <h1 className="text-3xl">Anjay Senggol Dong</h1>
+        <h1 className="text-3xl">Dashboard</h1>
+        <Suspense fallback={<SubLoading />}>
+          <DashboardModules />
+        </Suspense>
       </MainLayout>
     </Auth>
   );

@@ -12,7 +12,6 @@ export const AuthPayload = atom<AuthPayloadTypes>({
   default: {
     email: "",
     password: "",
-    name: "",
-    confirm_password: "",
+    fullname: "",
   },
 });

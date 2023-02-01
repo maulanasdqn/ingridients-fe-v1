@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "@views/App";
 // eslint-disable-next-line import/no-unresolved
@@ -7,6 +7,7 @@ import "@unocss/reset/tailwind.css";
 import ApiService from "@service/Api";
 import { RecoilRoot } from "recoil";
 import TokenService from "@service/Token";
+import SubLoading from "@components/Loading/SubLoading";
 
 ApiService.init(import.meta.env.VITE_API_URL);
 
@@ -20,8 +21,10 @@ if (TokenService.getToken()) {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
+    <Suspense fallback={<SubLoading />}>
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
+    </Suspense>
   </React.StrictMode>,
 );

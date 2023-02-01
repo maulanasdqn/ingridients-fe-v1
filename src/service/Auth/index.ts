@@ -15,12 +15,12 @@ const AuthService = {
         email,
         password,
       },
-      url: "/login",
+      url: "/auth/login/",
     };
     try {
       const res = await ApiService.customRequest(requestData);
-      TokenService.saveToken(res.data.results.access_token);
-      TokenService.saveRefreshToken(res.data.results.refresh_token);
+      TokenService.saveToken(res.data.access);
+      TokenService.saveRefreshToken(res.data.refresh);
       ApiService.setHeader();
     } catch (error) {
       throw handleError(error);
@@ -35,14 +35,13 @@ const AuthService = {
   },
 
   Register: async (payload: AuthPayloadTypes) => {
-    // const data = serialize(payload);
     const requestData = {
       method: "post",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
       data: payload,
-      url: "/register",
+      url: "/auth/register/",
     };
     try {
       await ApiService.customRequest(requestData);
@@ -58,9 +57,9 @@ const AuthService = {
         "Content-Type": "application/json",
       },
       data: {
-        refresh_token: TokenService.getRefreshToken(),
+        refresh: TokenService.getRefreshToken(),
       },
-      url: "/refresh",
+      url: "/auth/refresh/",
     };
     try {
       const response = await ApiService.customRequest(requestData);

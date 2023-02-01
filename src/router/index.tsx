@@ -2,9 +2,9 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 const Dashboard = lazy(() => import("@views/Dashboard"));
-const Permission = lazy(() => import("@views/Permission"));
 const Register = lazy(() => import("@views/Auth/Register"));
 const Login = lazy(() => import("@views/Auth/Login"));
+const Ingridient = lazy(() => import("@views/Ingridient"));
 
 const Router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const Router = createBrowserRouter([
     element: <Dashboard />,
   },
   {
-    path: "permission",
-    element: <Permission />,
+    path: "ingridients",
+    element: <Ingridient />,
   },
   {
     path: "/",

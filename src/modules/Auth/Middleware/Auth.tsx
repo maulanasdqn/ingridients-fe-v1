@@ -1,6 +1,7 @@
+import useAuth from "@hooks/Auth/useAuth";
+import ApiService from "@service/Api";
 import { FC, ReactElement } from "react";
 import { useLocation, Navigate } from "react-router-dom";
-import useAuth from "@hooks/Auth/useAuth";
 import { CommonInterface } from "@util/interfaces/Common";
 
 const Auth: FC<CommonInterface> = ({ children }): ReactElement => {
@@ -10,6 +11,8 @@ const Auth: FC<CommonInterface> = ({ children }): ReactElement => {
   if (!isAuthenticated) {
     return <Navigate to="/auth/login" state={{ from: Location }} replace />;
   } else {
+    ApiService.setHeader();
+    ApiService.mount401Interceptor();
     return <>{children}</>;
   }
 };
